@@ -1,0 +1,63 @@
+.global-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.global-notification {
+    position: fixed;
+    z-index: 10000000;
+    min-width: 250px;
+    padding: 10px 20px;
+    top: 30px;
+    border-radius: 5px;
+    right: -100%;
+}
+.global-notification ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.global-notification.opened {
+     transition: .4s;
+     right: 30px;
+ }
+
+.global-notification.error {
+    background-color: #ffe2e2;
+    color: #dc3545;
+}
+
+.global-notification.error i {
+    color: #ff9c9c;
+}
+
+.global-notification.success {
+    background-color: #dfffd0;
+    color: #30992d;
+}
+
+.global-notification.success i {
+    color: #30992d;
+}
+
+.global-notification.info {
+    background-color: #c3ecff;
+    color: #324184;
+}
+
+.global-notification.info i {
+    color: #324184;
+}
+
+.global-notification i {
+    font-size: 16px;
+    position: absolute;
+    right: 10px;
+    color: #ff9c9c;
+    cursor: pointer;
+}
+
+.global-notification ul {
+    max-width: 190px;
+}

@@ -1,0 +1,30 @@
+
+.week {
+    display: inline-block;
+    border: 1px solid #dddddd;
+    height: 25px;
+    line-height: 25px;
+    width: 120px;
+    padding: 8px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.activ {
+    background-image: linear-gradient(to top left,#feb020,#ffd05c);
+    background-color: #dddddd;
+    width: 120px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 6px;
+}
+
+.week:hover {
+  cursor: pointer;
+}
+
+.calendar{
+    width: 15px;
+}

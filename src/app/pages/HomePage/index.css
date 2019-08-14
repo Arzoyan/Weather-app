@@ -1,0 +1,21 @@
+.cities{
+    width: 140px;
+    padding: 8px;
+    line-height: 35px;
+    border-radius: 6px;
+    font-size: 18px;
+    background: #fff;
+    border: 1px solid #e0e0e0;;
+}
+
+.city{
+      width: 12px;
+    padding: 15px;
+    margin: 15px
+}
+
+.days-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
