@@ -4,11 +4,13 @@ import selector from "../../services/selector";
 import {
     getCurrentWeatherData, thisWeek,
     getWeekWeatherData, thisDayWeather,
-    clearState,getCurrentLocationWeather
+    clearState, getCurrentLocationWeather,
+    getCurrentLocation
 } from "../../modules/auth/Actions";
-import DropdownCreator from "../WeekDropdown/DropdownCreator";
+import DayOfWeeks from "../WeekDropdown/DayOfWeeks";
 import { CITIES, CURRENT_WEEK } from "../../../configs/constants";
 import WeatherShow from "../WeatherShow/WhaderShow";
+import SearchTypes from "../SearchTypes/SearchTypes";
 import "./index.css"
 
 
@@ -22,7 +24,7 @@ class HomePage extends Component {
 
     componentDidMount() {
         let currentWeek = CURRENT_WEEK();
-     
+
         this.props.dispatch(thisWeek(currentWeek))
         this.props.dispatch(getCurrentLocationWeather())
         // this.props.dispatch(getCurrentWeatherData("Yerevan"))
@@ -32,13 +34,15 @@ class HomePage extends Component {
 
     // change state and get new weather
     handleChange = (e) => {
-        const { city } = this.state;
         this.props.dispatch(clearState());
+
         this.setState({
             [e.target.id]: e.target.value,
             currentDay: null,
             weekWeather: null,
         }, () => {
+            const { city } = this.state;
+  
             this.props.dispatch(getCurrentWeatherData(city));
             this.props.dispatch(getWeekWeatherData(city));
         })
@@ -51,26 +55,51 @@ class HomePage extends Component {
             this.setState({
                 currentDay: day
             }, () => {
+
                 let weekWeather = showData.filter(wheader => wheader.dt_txt.slice(0, 10) === day);
                 return !!weekWeather && this.props.dispatch(thisDayWeather(weekWeather))
             })
         }
     }
 
+    gago = () => {
+        this.props.dispatch(clearState());
+        this.props.dispatch(getCurrentLocation());
+    }
+
+    handleChangeDate = (date) => {
+
+        this.setState((prevState) => {
+            return {
+                ...this.state,
+                ...date
+            }
+        }, () => {
+
+            // console.log("###########handleSearchLocation###############")
+
+
+        })
+
+
+    }
+
     render() {
-        const { thisDayWeather, currentWeather, thisWeek } = this.props;
+        const { thisDayWeather, currentWeather, thisWeek, currentLocationCity } = this.props;
         const { city, currentDay } = this.state;
         return (
             <div className={"dashboard"}>
                 <div>
+                    {currentWeather && <WeatherShow weekData={currentWeather} type={"city"} city={currentLocationCity || city} />}
 
-                    {currentWeather && <WeatherShow weekData={currentWeather} type={"city"} city={city} />}
-
+                </div>
+                <div>
+                    <SearchTypes handleChange={this.handleChangeDate} handleSearchLocation={this.gago} />
                 </div>
                 <div className="days-wrapper">
                     {
                         !!thisWeek && thisWeek.length > 0 ? this.props.thisWeek.map(e => {
-                            return <DropdownCreator key={e} day={e} loadCustomData={this.handleCurrentValue}
+                            return <DayOfWeeks key={e} day={e} loadCustomData={this.handleCurrentValue}
                                 className={e === currentDay ? "activ" : ""} />
                         }) : null
                     }

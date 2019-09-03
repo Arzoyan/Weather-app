@@ -7,9 +7,8 @@ export const API_URL = {
 export const API_KEY = "420b9c4d2095d7ad6aa5b34e9b0850ad";
 
 export const DATE_FORMAT = "ddd, MMM DD";
-
 export const CITIES = ["Yerevan", "Goris", "Artashat", "London,US", "Manchester,GB", "Libya", "Gana,CM", "Milan,IT", "Lion,FR"];
-
+// export const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 export const CURRENT_WEEK = () => {
     let currentWeek = [], data,
@@ -27,7 +26,9 @@ export const CURRENT_WEEK = () => {
         currentWeek.push(data)
     }
     return currentWeek
-}
+};
+
+
 
 export const GENERIC_API_ERROR = "Server has experienced an error, please try again later";
 export const NOT_FOUND = 404;

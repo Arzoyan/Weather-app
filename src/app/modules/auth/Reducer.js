@@ -12,6 +12,9 @@ export const actions = {
 
     GET_EATHER_DATA_WITH_LOCATION: "GET_EATHER_DATA_WITH_LOCATION",
 
+    GET_CURRENT_LOCSTION: "GET_CURRENT_LOCSTION",
+    GET_CURRENT_LOCSTION_SUCCESS: "GET_CURRENT_LOCSTION_SUCCESS",
+
     CLEAR_AUTH_STORE: "CLEAR_AUTH_STORE"
 };
 
@@ -21,6 +24,7 @@ const defaultState = {
     showData: null,
     cityWeather: null,
     thisDayWeather: null,
+    currentLocationCity: null
 };
 
 export default (state = defaultState, { type, payload }) => {
@@ -31,6 +35,7 @@ export default (state = defaultState, { type, payload }) => {
                 ...state,
                 thisWeek: payload,
             };
+
         case actions.THIS_DAY_WEATHER:
             return {
                 ...state,
@@ -42,6 +47,7 @@ export default (state = defaultState, { type, payload }) => {
             return {
                 ...state,
                 currentWeather: data,
+                currentLocationCity: payload.data.name,
             };
 
         case actions.WEEK_EATHER_DATA_SUCCESS:
@@ -57,6 +63,7 @@ export default (state = defaultState, { type, payload }) => {
                 showData: null,
                 cityWeather: null,
                 thisDayWeather: null,
+                currentLocationCity: null,
             };
         default:
             return state;

@@ -18,11 +18,16 @@ export const thisDayWeatherSelector = createSelector(
     authStoreSelector, (Auth) => Auth.thisDayWeather
 );
 
+export const currentLocationSelector = createSelector(
+    authStoreSelector, (Auth) => Auth.currentLocationCity
+);
+
 export default state => {
     return {
         thisWeek: thisWeekSelector(state),
         showData: showDataSelector(state),
         currentWeather: cityWeatherSelector(state),
         thisDayWeather: thisDayWeatherSelector(state),
+        currentLocationCity: currentLocationSelector(state),
     };
 };

@@ -36,6 +36,10 @@ export function getCurrentLocationWeather() {
     return { type: actions.GET_EATHER_DATA_WITH_LOCATION };
 }
 
+export function getCurrentLocation() {
+    return { type: actions.GET_CURRENT_LOCSTION };
+}
+
 export function clearState() {
     return { type: actions.CLEAR_AUTH_STORE };
 }

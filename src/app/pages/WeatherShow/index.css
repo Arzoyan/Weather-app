@@ -5,18 +5,19 @@ table {
   width: 100%;
 }
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
-  
+
 tr:nth-child(even) {
-  background-image: linear-gradient(to top left,#feb020,#ffd05c);
+  background-image: linear-gradient(to top left, #feb020, #ffd05c);
 }
 
 .current-weather {
-  background-image: linear-gradient(to top left,#feb020,#ffd05c);
+  background-image: linear-gradient(to top left, #feb020, #ffd05c);
   display: flex;
   align-items: center;
   margin-bottom: 30px;
@@ -26,7 +27,7 @@ tr:nth-child(even) {
 .weather-header {
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 20px
+  font-size: 20px;
 }
 
 .weather-body {

@@ -1,8 +1,8 @@
 import React from 'react';
 import "./index.css";
-import calendar from "../../../img/calendar.png"
+import calendar from "../../../img/calendar.png";
 
-const DropdownCreator = (props) => {
+const DayOfWeeks = (props) => {
     const { day, loadCustomData, className } = props;
 
     return <>
@@ -10,4 +10,4 @@ const DropdownCreator = (props) => {
     </>
 }
 
-export default DropdownCreator
+export default DayOfWeeks
